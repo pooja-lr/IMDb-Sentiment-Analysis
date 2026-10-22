@@ -1,244 +1,246 @@
-\# IMDb Movie Review Sentiment Analysis
+# IMDb Movie Review Sentiment Analysis
 
+A machine learning project that classifies IMDb movie reviews as **positive or negative** using Natural Language Processing (NLP), TF-IDF feature extraction, and multiple machine learning classifiers.
 
+The project trains and evaluates different models to compare their performance on movie review sentiment classification.
 
-\## 1. Project Overview
+---
 
+## 1. Project Overview
 
+Sentiment analysis is a Natural Language Processing task used to identify the opinion or sentiment expressed in a piece of text.
 
-This project uses machine learning and natural language processing techniques to classify IMDb movie reviews as positive or negative.
+This project uses the IMDb Large Movie Review Dataset to develop a sentiment classification system. It converts textual reviews into numerical features using TF-IDF and applies machine learning algorithms to predict whether a review expresses a positive or negative sentiment.
 
+Three classification algorithms are evaluated to compare their effectiveness on the same dataset.
 
+## 2. Objectives
 
-The system converts textual reviews into numerical features using TF-IDF and trains machine learning classifiers to predict sentiment.
+- Process and analyze IMDb movie reviews.
+- Convert textual data into numerical features using TF-IDF vectorization.
+- Train multiple machine learning classifiers.
+- Evaluate model performance using standard classification metrics.
+- Predict the sentiment of new movie reviews.
+- Visualize and compare the performance of different models.
 
+## 3. Technologies Used
 
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Pandas | Data manipulation and analysis |
+| NumPy | Numerical operations |
+| Scikit-learn | Machine learning and model evaluation |
+| TF-IDF | Text feature extraction |
+| Logistic Regression | Sentiment classification |
+| Multinomial Naive Bayes | Probabilistic classification |
+| Linear Support Vector Machine | Text classification |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical visualization |
 
-\## 2. Objectives
+## 4. Dataset
 
+The project uses the IMDb Large Movie Review Dataset provided by Stanford University.
 
+**Dataset details:**
 
-\- Process and analyze IMDb movie reviews.
+- Total reviews: 50,000
+- Training reviews: 25,000
+- Testing reviews: 25,000
+- Sentiment classes: Positive and Negative
+- Problem type: Binary text classification
 
-\- Convert text into numerical representations using TF-IDF.
+**Dataset source:** [IMDb Large Movie Review Dataset — Stanford AI Lab](https://ai.stanford.edu/~amaas/data/sentiment/)
 
-\- Train and compare multiple machine learning classifiers.
+The dataset must be downloaded and extracted locally before running the project. The extracted directory should be named `aclImdb` and placed in the project root directory.
 
-\- Evaluate model performance using classification metrics.
+The dataset is excluded from version control to keep the repository lightweight.
 
-\- Predict sentiment for new movie reviews.
-
-\- Visualize and compare model performance.
-
-
-
-\## 3. Dataset
-
-
-
-The project uses the IMDb Large Movie Review Dataset from Stanford University.
-
-
-
-The dataset contains 50,000 labeled movie reviews:
-
-\- 25,000 training reviews.
-
-\- 25,000 test reviews.
-
-\- Positive and negative sentiment labels.
-
-
-
-Dataset source: https://ai.stanford.edu/\~amaas/data/sentiment/
-
-
-
-The dataset must be downloaded and extracted locally before running the scripts. It is excluded from this repository.
-
-
-
-\## 4. Technologies Used
-
-
-
-\- Python
-
-\- Pandas and NumPy
-
-\- Scikit-learn
-
-\- TF-IDF Vectorization
-
-\- Logistic Regression
-
-\- Multinomial Naive Bayes
-
-\- Linear Support Vector Machine (Linear SVM)
-
-\- Matplotlib and Seaborn
-
-
-
-\## 5. Project Structure
-
-
+## 5. Project Structure
 
 ```text
-
 IMDb-Sentiment-Analysis/
-
+|
 ├── main.py
-
 ├── predict.py
-
-├── compare\_models.py
-
-├── visualize\_results.py
-
+├── compare_models.py
+├── visualize_results.py
 ├── requirements.txt
-
 ├── README.md
-
 ├── .gitignore
-
+|
 ├── outputs/
-
-│   ├── model\_comparison.csv
-
-│   ├── model\_accuracy.png
-
-│   ├── model\_f1\_score.png
-
-│   └── confusion\_matrix.png
-
+│   ├── model_comparison.csv
+│   ├── model_accuracy.png
+│   ├── model_f1_score.png
+│   └── confusion_matrix.png
+|
 ├── models/
-
 └── aclImdb/
-
 ```
 
+**File descriptions:**
 
+- `main.py` — Trains and evaluates the primary Logistic Regression model.
+- `predict.py` — Predicts the sentiment of new movie reviews.
+- `compare_models.py` — Compares the performance of the supported machine learning classifiers.
+- `visualize_results.py` — Generates charts to visualize model performance.
+- `requirements.txt` — Contains the Python dependencies required to run the project.
+- `outputs/` — Stores evaluation results and generated visualizations.
+- `models/` — Stores trained model files when generated by the scripts.
+- `aclImdb/` — Contains the locally downloaded dataset.
 
-The dataset, virtual environment, and saved model files are excluded from version control.
+The dataset, virtual environment, and saved model files should be excluded from version control.
 
+## 6. Installation and Setup
 
+### Prerequisites
 
-\## 6. Installation
+- Python 3.12 or another compatible Python version
+- Git
+- A terminal or command prompt
 
+### Step 1: Clone the repository
 
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd IMDb-Sentiment-Analysis
+```
 
-Install Python 3.12 or another compatible Python 3 version.
+Replace the placeholder with the actual GitHub repository URL.
 
+### Step 2: Create a virtual environment
 
-
-Clone the repository, enter the project directory, and create a virtual environment:
-
-
+For Windows PowerShell:
 
 ```powershell
-
 python -m venv .venv
-
-.\\.venv\\Scripts\\Activate.ps1
-
-python -m pip install -r requirements.txt
-
+.\.venv\Scripts\Activate.ps1
 ```
 
+For macOS or Linux:
 
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-Download the IMDb dataset from the source link above and extract it into the project directory so that the `aclImdb` folder is available.
+### Step 3: Install dependencies
 
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
+### Step 4: Download the dataset
 
-\## 7. Running the Project
+Download the IMDb dataset from the Stanford website and extract it into the project directory.
 
+Verify that the `aclImdb` directory exists in the project root and that its internal structure matches the paths expected by the Python scripts.
 
+## 7. Running the Project
 
-Train the Logistic Regression model:
+Execute the following commands from the project root with the virtual environment activated.
 
+### Train the primary model
 
-
-```powershell
-
+```bash
 python main.py
-
 ```
 
+Runs the primary model training and evaluation workflow implemented in the script.
 
+### Predict sentiment
 
-Predict the sentiment of a new review:
-
-
-
-```powershell
-
+```bash
 python predict.py
-
 ```
 
+Runs the sentiment prediction script to classify a new movie review using the trained model.
 
+### Compare machine learning models
 
-Compare the three classifiers:
-
-
-
-```powershell
-
-python compare\_models.py
-
+```bash
+python compare_models.py
 ```
 
+Trains or evaluates the supported classifiers and saves their performance metrics for comparison.
 
+### Generate visualizations
 
-Generate evaluation charts:
-
-
-
-```powershell
-
-python visualize\_results.py
-
+```bash
+python visualize_results.py
 ```
 
+Generates performance charts from the evaluation results. Run `compare_models.py` first to ensure the required comparison data is available.
 
+## 8. Project Workflow
 
-Run the model comparison script before generating the visualization files.
+1. **Dataset loading:** Load the labeled IMDb training and testing reviews.
+2. **Text preprocessing:** Prepare the review text for feature extraction.
+3. **Feature extraction:** Transform the text into numerical features using TF-IDF.
+4. **Model training:** Train Logistic Regression, Multinomial Naive Bayes, and Linear SVM classifiers.
+5. **Model evaluation:** Evaluate predictions using classification metrics.
+6. **Model comparison:** Compare the performance of the classifiers.
+7. **Visualization:** Generate charts and confusion matrices.
+8. **Sentiment prediction:** Predict the sentiment of new movie reviews.
 
+## 9. Model Evaluation
 
+The models are evaluated using the following metrics:
 
-\## 8. Evaluation
+| Metric | Description |
+|---|---|
+| Accuracy | Measures the proportion of correctly classified reviews. |
+| Precision | Measures the proportion of predicted positive reviews that are actually positive. |
+| Recall | Measures the proportion of actual positive reviews correctly identified. |
+| F1-score | Combines precision and recall into a single metric. |
+| Confusion matrix | Shows correct and incorrect predictions for each sentiment class. |
 
+### Output Files
 
+| File | Description |
+|---|---|
+| `model_comparison.csv` | Stores the model comparison metrics. |
+| `model_accuracy.png` | Compares model accuracy. |
+| `model_f1_score.png` | Compares model F1-scores. |
+| `confusion_matrix.png` | Visualizes classification results and errors. |
 
-The models are evaluated using:
+Actual performance values should be obtained by running the scripts. Results depend on the implementation, feature extraction settings, and evaluation procedure.
 
-\- Accuracy
+## 10. Results and Analysis
 
-\- Precision
+The project enables a comparative analysis of three machine learning algorithms for sentiment classification.
 
-\- Recall
+The evaluation metrics help identify differences in predictive performance, while the visualizations provide a clearer understanding of classification accuracy and errors.
 
-\- F1-score
+The best-performing model can be selected based on the observed evaluation results rather than assuming that a particular algorithm will always perform best.
 
-\- Confusion matrix
+## 11. Future Enhancements
 
+- Develop a web interface for interactive sentiment prediction.
+- Experiment with different TF-IDF configurations and n-gram features.
+- Perform hyperparameter tuning to improve model performance.
+- Use cross-validation for more reliable model comparisons.
+- Explore deep learning and transformer-based sentiment classification.
+- Analyze incorrectly classified reviews to identify model limitations.
 
+## 12. Learning Outcomes
 
-The comparison results are saved in `outputs/model\_comparison.csv`. Charts are saved in the `outputs` directory.
+This project demonstrates practical applications of:
 
+- Natural Language Processing
+- Text preprocessing and feature engineering
+- TF-IDF vectorization
+- Supervised machine learning
+- Binary text classification
+- Model evaluation and comparison
+- Data visualization and error analysis
 
+## 13. License
 
-Actual performance values should be taken from the program output.
+A suitable open-source license can be added to the repository if the project is intended for public reuse. Without an explicit license, the repository remains subject to applicable copyright restrictions.
 
+---
 
-
-\## 9. Conclusion
-
-
-
-This project demonstrates how machine learning techniques can classify movie review sentiment using text preprocessing and TF-IDF feature extraction. Comparing multiple classifiers helps identify which approach performs best on the selected evaluation metrics.
-
-
-
+**Developed using Python, Scikit-learn, and Natural Language Processing.**
