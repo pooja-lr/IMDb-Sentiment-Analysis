@@ -242,5 +242,3 @@ This project demonstrates practical applications of:
 A suitable open-source license can be added to the repository if the project is intended for public reuse. Without an explicit license, the repository remains subject to applicable copyright restrictions.
 
 ---
-
-**Developed using Python, Scikit-learn, and Natural Language Processing.**
